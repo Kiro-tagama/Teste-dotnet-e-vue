@@ -65,13 +65,6 @@ erDiagram
 
 ### 📦 Produtos (`api/products`)
 
-Método	Rota	Descrição
-GET	api/products	Lista todos os produtos
-GET	api/products/{id}	Obtém um produto por ID
-GET	api/products/category/{categoryId}	Lista produtos por categoria
-POST	api/products	Cria um novo produto
-PUT	api/products/{id}	Atualiza um produto
-DELETE	api/products/{id}	Remove um produto
 
 | Método  | Rota                                 | Descrição                    |
 |---------|--------------------------------------|------------------------------|
