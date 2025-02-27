@@ -5,5 +5,7 @@ services:
     image: nouchka/sqlite3
     container_name: sqlite_db
     volumes:
-      - ./data:/data
-    command: ["sqlite3", "/data/database.sqlite"]
+      - ./Data:/Data
+    stdin_open: true
+    tty: true
+    entrypoint: /bin/sh

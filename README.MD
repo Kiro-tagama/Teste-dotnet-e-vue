@@ -51,22 +51,33 @@ erDiagram
 
 ## Endpoints da API
 
-### 🏷️ Categorias (`/categories`)
+### 🏷️ Categorias (`api/categories`)
 
 | Método  | Rota               | Descrição                              |
 |---------|--------------------|----------------------------------------|
-| `GET`   | `/categories`      | Lista todas as categorias              |
-| `POST`  | `/categories`      | Cria uma nova categoria                |
-| `PUT`   | `/categories/{id}` | Atualiza uma categoria                 |
-| `DELETE`| `/categories/{id}` | ⚠ Remove uma categoria e seus produtos |
+| `GET`   | `api/categories`      | Lista todas as categorias              |
+| `POST`  | `api/categories`      | Cria uma nova categoria                |
+| `GET`   | `api/categories/{id}` | categorias por id                      |
+| `PUT`   | `api/categories/{id}` | Atualiza uma categoria                 |
+| `DELETE`| `api/categories/{id}` | ⚠ Remove uma categoria e seus produtos |
 
 
 
-### 📦 Produtos (`/products`)
+### 📦 Produtos (`api/products`)
 
-| Método  | Rota             | Descrição                  |
-|---------|------------------|----------------------------|
-| `GET`   | `/products`      | Lista todos os produtos    |
-| `POST`  | `/products`      | Cria um novo produto       |
-| `PUT`   | `/products/{id}` | Atualiza um produto        |
-| `DELETE`| `/products/{id}` | Remove um produto          |
+Método	Rota	Descrição
+GET	api/products	Lista todos os produtos
+GET	api/products/{id}	Obtém um produto por ID
+GET	api/products/category/{categoryId}	Lista produtos por categoria
+POST	api/products	Cria um novo produto
+PUT	api/products/{id}	Atualiza um produto
+DELETE	api/products/{id}	Remove um produto
+
+| Método  | Rota                                 | Descrição                    |
+|---------|--------------------------------------|------------------------------|
+| `GET`   | `api/products`                       | Lista todos os produtos      |
+| `GET`   | `api/products/{id}`                  | Obtém um produto por ID      |
+| `GET`   | `api/products/category/{categoryId}` | Lista produtos por categoria |
+| `POST`  | `api/products`                       | Cria um novo produto         |
+| `PUT`   | `api/products/{id}`                  | Atualiza um produto          |
+| `DELETE`| `api/products/{id}`                  | Remove um produto            |
