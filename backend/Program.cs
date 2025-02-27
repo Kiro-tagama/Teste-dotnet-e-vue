@@ -9,6 +9,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PermitirTudo", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000","*") // Altere para a origem do seu frontend
+              .AllowAnyHeader()
+              .AllowAnyMethod(); // Permite POST, PUT, DELETE, GET, etc.
+    });
+});
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -19,6 +29,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("PermitirTudo");
 
 app.UseHttpsRedirection();
 

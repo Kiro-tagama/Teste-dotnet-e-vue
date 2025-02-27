@@ -74,3 +74,10 @@ erDiagram
 | `POST`  | `api/products`                       | Cria um novo produto         |
 | `PUT`   | `api/products/{id}`                  | Atualiza um produto          |
 | `DELETE`| `api/products/{id}`                  | Remove um produto            |
+
+## Interface
+
+como o vuetify tem seus componentes vou me basear em 3 telas
+1. Home - mostrar as categorias
+2. List - mostrar os produtos
+3. Produto - mostras as informações geral do produto e sua categoria
