@@ -46,9 +46,9 @@ public class CategoriesController : ControllerBase
 
   // PUT: api/categories/{id}
   [HttpPut("{id}")]
-  public async Task<IActionResult> UpdateCategory(Guid id, Category category) // ✅ id agora é Guid
+  public async Task<IActionResult> UpdateCategory(Guid id, Category category) 
   {
-    if (category.Id != id) return BadRequest(); // ✅ Comparação correta
+    if (category.Id != id) return BadRequest(); 
 
     _context.Entry(category).State = EntityState.Modified;
 
@@ -74,7 +74,7 @@ public class CategoriesController : ControllerBase
 
   // DELETE: api/categories/{id}
   [HttpDelete("{id}")]
-  public async Task<IActionResult> DeleteCategory(int id)
+  public async Task<IActionResult> DeleteCategory(Guid id)
   {
     var category = await _context.Categories.FindAsync(id);
     if (category == null)

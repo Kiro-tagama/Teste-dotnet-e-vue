@@ -14,10 +14,10 @@ defineProps<{
   <v-card v-else class="card">
     <v-btn class="options-button" 
       v-if="openModal" 
-      @click.stop="openModal"
+      @click.stop.prevent="openModal"
       icon="mdi-dots-vertical" 
       size="x-small"></v-btn>
-    <img :src="`https://picsum.photos/id/10/800/600`" alt="Categoria" class="category-image" />
+    <img :src="`https://cdn.vuetifyjs.com/images/parallax/material.jpg`" alt="Categoria" class="category-image" />
     <h3 class="category-title">{{ title }}</h3>
   </v-card>
 </template>

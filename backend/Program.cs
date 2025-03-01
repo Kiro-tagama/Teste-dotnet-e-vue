@@ -13,9 +13,11 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("PermitirTudo", policy =>
     {
-        policy.WithOrigins("http://localhost:3000","*") // Altere para a origem do seu frontend
+        // estou usando essa url diferente pois estou criando no codespace do github
+        // policy.WithOrigins("http://localhost:3000/","https://turbo-yodel-q4g6qvq64x43x64-3000.app.github.dev/") 
+        policy.AllowAnyOrigin()
               .AllowAnyHeader()
-              .AllowAnyMethod(); // Permite POST, PUT, DELETE, GET, etc.
+              .AllowAnyMethod();
     });
 });
 

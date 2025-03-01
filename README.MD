@@ -79,5 +79,8 @@ erDiagram
 
 como o vuetify tem seus componentes vou me basear em 3 telas
 1. Home - mostrar as categorias
+    - vai conter os cards de categoria com a possibilidade de editar
+    - filtro simples com botão para criar nova categoria
+    - um botão para acessar todas os produtos
 2. List - mostrar os produtos
 3. Produto - mostras as informações geral do produto e sua categoria
