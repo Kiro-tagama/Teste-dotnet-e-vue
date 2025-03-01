@@ -54,42 +54,37 @@ export async function useProduct() {
       alert("O nome do produto é obrigatório!");
       return;
     }
-
+  
     const data = {
       name: product.value.name,
       description: product.value.description || "",
       price: product.value.price.toFixed(2),
       quantity: product.value.quantity.toFixed(0),
       updatedAt: new Date().toISOString(),
+      categoryId: product.value.categoryId,
     };
 
-    // pega o id da categoria com base no nome
-    const categoryId = 
-      Array.isArray(category.value) && 
-      category.value?.find((cat) => cat.name === product.value?.categoryId)?.id
-
+    const getCategoryId =  Array.isArray(category.value) && 
+      category.value?.find((cat) => cat.name === product.value?.categoryId)?.id;
+  
     try {
       if (id !== "new") {
-        // console.log("Atualizado:", data);
         await customFetch("PUT", `${urls.products}${id}`, {
           id: product.value.id,
           ...data
-        })
-        .then(res=> console.log(res.status))
-        .catch(err => console.log(err));
+        });
       } else {
         await customFetch("POST", urls.products, {
-          categoryId: categoryId,
-          ...data
-        })
-        .then(res=> console.log(res.status))
-        .catch(err => console.log(err));
+          ...data,
+          categoryId: getCategoryId,
+        });
       }
       router.back();
     } catch (error) {
       console.error("Erro ao salvar produto:", error);
     }
   };
+  
 
   const deleteProduct = async () => {
     if (!product.value?.id) return;

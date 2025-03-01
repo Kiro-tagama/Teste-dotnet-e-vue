@@ -22,7 +22,7 @@
     <v-form @submit.prevent="saveProduct">
       <v-text-field v-model="product.name" label="Nome do Produto" required></v-text-field>
       <v-text-field v-model="product.description" label="Descrição do Produto"></v-text-field>
-      <v-text-field v-model.number="product.price" label="Preço" type="number" step="0.01" required></v-text-field>
+      <v-text-field v-model.number="product.price" label="Preço" type="number" required></v-text-field>
       <v-text-field v-model.number="product.quantity" label="Quantidade" type="number" required></v-text-field>
 
       <v-select
