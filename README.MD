@@ -1,6 +1,9 @@
 # Desafio Técnico
 
 notes: 
+- como é algo pequeno não vou usar pinia,redux e etc para gerenciamento de estado global
+
+obs: estou desenvolvendo no codespace do github, caso tenha problema com a api troque a url base para a adequeda do backend no arquivo `frontend/composables/apiConfig.ts` na variavel `urlBase`
 
 ## Comandos para startar o projeto como dev
 
@@ -59,7 +62,7 @@ erDiagram
 | `POST`  | `api/categories`      | Cria uma nova categoria                |
 | `GET`   | `api/categories/{id}` | categorias por id                      |
 | `PUT`   | `api/categories/{id}` | Atualiza uma categoria                 |
-| `DELETE`| `api/categories/{id}` | ⚠ Remove uma categoria e seus produtos |
+| `DELETE`| `api/categories/{id}` | Remove uma categoria                   |
 
 
 
@@ -84,3 +87,5 @@ como o vuetify tem seus componentes vou me basear em 3 telas
     - um botão para acessar todas os produtos
 2. List - mostrar os produtos
 3. Produto - mostras as informações geral do produto e sua categoria
+    - mostra as informações de um produto especifico (ler,editar,apagar)
+    - criar um produto novo para as categorias registradas
