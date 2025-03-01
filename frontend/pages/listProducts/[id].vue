@@ -11,8 +11,6 @@ const { data: products } = await useAsyncData<Products[]>(`products`, () =>
   $fetch<Products[]>(url)
 );
 
-console.log(products)
-
 const inputProduct = ref("");
 const productsNames = computed(() => products.value?.map(i => i.name) || []);
 </script>
