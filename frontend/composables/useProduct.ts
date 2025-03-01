@@ -1,4 +1,4 @@
-import { watchEffect, watch, ref, computed } from "vue";
+import { watchEffect, ref, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { urls, customFetch } from "~/composables/apiConfig";
 import type { Products } from "~/interfaces/products";
@@ -11,6 +11,7 @@ export async function useProduct() {
 
   const product = ref<Products | null>(null);
   const category = ref<Categories | Categories[] | null>(null);
+  const categoryIsEmpty = ref<boolean>(false);
 
   // Buscar produto se não for um novo
   if (id !== "new") {
@@ -32,16 +33,16 @@ export async function useProduct() {
       };
       category.value = await $fetch<Categories[]>(urls.categories);
     }else{
-      console.log("vai passar uma objeto"+ product.value?.categoryId)
-      category.value = await $fetch<Categories>(`${urls.categories}${product.value?.categoryId}`)
+      try {
+        category.value = await $fetch<Categories>(`${urls.categories}${product.value?.categoryId}`);
+      } catch (err: any) {
+        if (err.response?.status === 404) {
+          categoryIsEmpty.value = true;
+          category.value = null; 
+        }
+      }
     }
   });
-
-  console.log({
-    id: id,
-    product: {...product.value},
-    category: {...category.value}, //ta vindo null quando for para pegar a categoria unica  
-  })
 
   const categoryNames = computed(() =>
     Array.isArray(category.value)
@@ -105,6 +106,7 @@ export async function useProduct() {
     product,
     category,
     categoryNames,
+    categoryIsEmpty,
     saveProduct,
     deleteProduct
   }

@@ -4,6 +4,7 @@
     product,
     category,
     categoryNames,
+    categoryIsEmpty,
     saveProduct,
     deleteProduct
   } = await useProduct();
@@ -49,6 +50,10 @@
       <v-card-subtitle>{{ category.description }}</v-card-subtitle>
       <v-card-subtitle># {{ category.id }}</v-card-subtitle>
     </v-card>
+    <v-alert v-else-if="categoryIsEmpty" type="error" variant="outlined">
+      A categoria foi apagada
+      É recomendado que apague também o produto
+    </v-alert>
     <v-alert v-else type="info" variant="outlined">Carregando categoria...</v-alert>
   </div>
 </template>
